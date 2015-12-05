@@ -1,0 +1,8 @@
+{% extends 'app/base.html' %}{% load staticfiles %}
+{% block main %}
+   <ul>
+   {% for obj in object_list %}
+   <li>label:{{obj.label}}   <img src='{{MEDIA_URL}}{{obj.image}}' /></li>
+   {% endfor %}
+   </ul>
+{% endblock %}

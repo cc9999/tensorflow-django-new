@@ -1,0 +1,23 @@
+{% extends "app/base.html"%}{% load bootstrap3  staticfiles %}
+{% block main %}
+<!-- input -->
+{% if form %}
+   <h1>请输入jpg格式测试图片</h1>
+   <div class="row">
+       <form action="{% url 'app:test' %}" method='post' enctype="multipart/form-data"  >
+            {% csrf_token %}
+            {% bootstrap_form  form %}
+              {% buttons %}
+                <button type="submit" class="btn btn-primary">
+                    {% bootstrap_icon "star" %} Submit
+                </button>
+               {% endbuttons %}
+        </form>
+   </div>
+{% else %}
+   <h1>测试结果</h1>
+   <div class="row">
+       {{ result }}
+   </div>
+{% endif %}
+{% endblock %}

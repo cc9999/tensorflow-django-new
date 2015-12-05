@@ -1,0 +1,31 @@
+<!DOCTYPE html>{% load bootstrap3  staticfiles %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    
+    <script type="text/javascript" src="{% bootstrap_jquery_url  %}" />
+    {% bootstrap_javascript  %}
+
+    {% bootstrap_css %}
+	<title>测试数据</title>
+</head>
+<body>
+  <div class="container">
+     <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <form action="{% url 'index' %}" method='post' enctype="multipart/form-data"  >
+              {% csrf_token %}
+              {% bootstrap_form form  %}
+              {% buttons %}
+                <button type="submit" class="btn btn-primary">
+                    {% bootstrap_icon "star" %} Submit
+                </button>
+               {% endbuttons %}
+            </form>
+        </div>
+        <div class="col-1"></div>
+     </div>
+  </div>
+</body>
+</html>
